@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+#define XF86XK_MonBrightnessUp   0x1008FF02  /* Monitor/panel brightness */
+#define XF86XK_MonBrightnessDown 0x1008FF03  /* Monitor/panel brightness */
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -59,10 +62,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *brupcmd[] = { "sudo", "light", "-A", "10", NULL };
+static const char *brdowncmd[] = { "sudo", "light", "-U", "10", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, /* */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -95,6 +100,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+{ 0, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
+{ 0, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
+
 };
 
 /* button definitions */
