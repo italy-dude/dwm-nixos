@@ -64,8 +64,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 //static const char *brupcmd[] = { "sudo", "light", "-A", "10", NULL };
 //static const char *brdowncmd[] = { "sudo", "light", "-U", "10", NULL };
-static const char *brupcmd[] = { "/run/current-system/sw/bin/logger", "brighteningggg", NULL };
-static const char *brdowncmd[] = { "/run/current-system/sw/bin/logger", "unbrightenunh", NULL };
+static const char *brupcmd[] = { "/run/current-system/sw/bin/logger", "bright upppppppp", NULL };
+static const char *brdowncmd[] = { "/run/current-system/sw/bin/logger", "bright downnnnn", NULL };
 
 static const Key keys[] = {
         /* modifier                     key        function        argument */
@@ -102,9 +102,8 @@ static const Key keys[] = {
         TAGKEYS(                        XK_8,                      7)
         TAGKEYS(                        XK_9,                      8)
         { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-{ MODKEY, 0x1008FF02, spawn, {.v = brupcmd} },
-{ MODKEY, 0x1008FFE0, spawn, {.v = brdowncmd} },
-
+        { MODKEY, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
+        { MODKEY, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
 };
 
 /* button definitions */
