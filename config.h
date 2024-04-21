@@ -67,9 +67,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *brupcmd[] = { "/run/current-system/sw/bin/light", "-A", "10", NULL };
 static const char *brdowncmd[] = { "/run/current-system/sw/bin/light", "-U", "10", NULL };
-static const char voltogglecmd[] = { "pamixer", "-t"};
-static const char *volupcmd[] = { "pamixer", "-i", "5"};
-static const char *voldowncmd[] = { "pamixer", "-d", "5"};
+static const char *voltogglecmd[] = { "pamixer", "-t", NULL};
+static const char *volupcmd[] = { "pamixer", "-i", "5", NULL};
+static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL};
 
 static const Key keys[] = {
         /* modifier                     key        function        argument */
