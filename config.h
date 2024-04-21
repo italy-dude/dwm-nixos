@@ -62,8 +62,10 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *brupcmd[] = { "sudo", "light", "-A", "10", NULL };
-static const char *brdowncmd[] = { "sudo", "light", "-U", "10", NULL };
+//static const char *brupcmd[] = { "sudo", "light", "-A", "10", NULL };
+//static const char *brdowncmd[] = { "sudo", "light", "-U", "10", NULL };
+static const char *brupcmd[] = { "/run/current-system/sw/bin/logger", "brighteningggg", NULL };
+static const char *brdowncmd[] = { "/run/current-system/sw/bin/logger", "unbrightenunh", NULL };
 
 static const Key keys[] = {
         /* modifier                     key        function        argument */
