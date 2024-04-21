@@ -69,7 +69,7 @@ static const char *brdowncmd[] = { "/run/current-system/sw/bin/logger", "unbrigh
 
 static const Key keys[] = {
         /* modifier                     key        function        argument */
-        { MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } }, /* */
+        { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, /* */
         { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
         { MODKEY,                       XK_b,      togglebar,      {0} },
         { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -102,8 +102,8 @@ static const Key keys[] = {
         TAGKEYS(                        XK_8,                      7)
         TAGKEYS(                        XK_9,                      8)
         { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-{ MODKEY, XK_x, spawn, {.v = brupcmd} },
-{ MODKEY, XK_z, spawn, {.v = brdowncmd} },
+{ MODKEY, 0x1008FF02, spawn, {.v = brupcmd} },
+{ MODKEY, 0x1008FFE0, spawn, {.v = brdowncmd} },
 
 };
 
