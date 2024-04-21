@@ -2,6 +2,9 @@
 
 #define XF86XK_MonBrightnessUp   0x1008FF02  /* Monitor/panel brightness */
 #define XF86XK_MonBrightnessDown 0x1008FF03  /* Monitor/panel brightness */
+#define XF86XK_AudioLowerVolume	0x1008FF11   /* Volume control down        */
+#define XF86XK_AudioMute	0x1008FF12   /* Mute sound from the system */
+#define XF86XK_AudioRaiseVolume	0x1008FF13   /* Volume control up          */
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -64,8 +67,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *brupcmd[] = { "/run/current-system/sw/bin/light", "-A", "10", NULL };
 static const char *brdowncmd[] = { "/run/current-system/sw/bin/light", "-U", "10", NULL };
-//static const char *brupcmd[] = { "/run/current-system/sw/bin/logger", "bright upppppppp", NULL };
-//static const char *brdowncmd[] = { "/run/current-system/sw/bin/logger", "bright downnnnn", NULL };
+static const char voltogglecmd[] = { "pamixer", "-t", NULL };
+static const char *volupcmd[] = { "pamixer", "-i", "5", NULL };
+static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL };
 
 static const Key keys[] = {
         /* modifier                     key        function        argument */
@@ -102,8 +106,11 @@ static const Key keys[] = {
         TAGKEYS(                        XK_8,                      7)
         TAGKEYS(                        XK_9,                      8)
         { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-        { MODKEY, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
-        { MODKEY, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
+        { 0, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
+        { 0, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
+        { 0, XF86XK_AudioMute, spawn, {.v = voltogglecmd} },
+        { 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd} },
+        { 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd} },
 };
 
 /* button definitions */
