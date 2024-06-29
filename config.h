@@ -70,6 +70,7 @@ static const char *brdowncmd[] = { "/run/current-system/sw/bin/light", "-U", "10
 static const char *voltogglecmd[] = { "pamixer", "-t", NULL};
 static const char *volupcmd[] = { "pamixer", "-i", "5", NULL};
 static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL};
+static const char *slockcmd[] = { "slock", NULL}
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -106,6 +107,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY,			XK_s,	   spawn,	   {.v = slockcmd } },
         { 0, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
         { 0, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
 };
