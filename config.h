@@ -70,7 +70,7 @@ static const char *brdowncmd[] = { "/run/current-system/sw/bin/light", "-U", "10
 static const char *voltogglecmd[] = { "pamixer", "-t", NULL};
 static const char *volupcmd[] = { "pamixer", "-i", "5", NULL};
 static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL};
-static const char *slockcmd[] = { "slock", NULL}
+static const char *slockcmd[] = { "slock", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
